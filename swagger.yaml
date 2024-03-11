@@ -92,6 +92,7 @@ paths:
       security:
         - petstore_auth: []
         - api_key: []
+
   /booking/{booking_id}:
     get:
       tags:
@@ -113,11 +114,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'          
+                $ref: '#/components/schemas/ToDo'
       security:
         - petstore_auth: []
         - api_key: []
-        
     put:
       tags:
         - Booking
@@ -145,7 +145,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'          
+                $ref: '#/components/schemas/ToDo'
       security:
         - petstore_auth: []
         - api_key: []
@@ -154,7 +154,7 @@ paths:
         - Booking
       summary: Частично обновляет существующее бронирование
       description: Частично обновляет существующее бронирование по id
-      operationId: editBooking
+      operationId: PartialEditBooking
       parameters:
         - name: booking_id
           in: path
@@ -176,7 +176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'          
+                $ref: '#/components/schemas/ToDo'
       security:
         - petstore_auth: []
         - api_key: []
@@ -200,11 +200,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'          
+                $ref: '#/components/schemas/ToDo'
       security:
         - petstore_auth: []
         - api_key: []
- 
+
   /hotel:
     get:
       tags:
