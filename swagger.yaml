@@ -76,19 +76,48 @@ paths:
       description: Находит все существующие бронирования и возвращает их в виде списка
       operationId: getBookings
       parameters:
-        - name: username
+        - name: hotel_id
           in: query
-          description: The user name for login
+          description: ID отеля
           required: false
           schema:
-            type: string
+            type: integer
+            format: int64
+        - name: customer_firstname
+          in: query
+          description: Имя клиента
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: customer_lastname
+          in: query
+          description: Фамилия клиента
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: checkin
+          in: query
+          description: Сheckin дата
+          required: false
+          schema:
+           type: string
+           format: date
+        - name: checkout
+          in: query
+          description: Сheckout дата
+          required: false
+          schema:
+           type: string
+           format: date
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'        
+                $ref: '#/components/schemas/ToDo'
       security:
         - petstore_auth: []
         - api_key: []
