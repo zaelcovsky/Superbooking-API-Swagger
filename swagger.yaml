@@ -212,7 +212,7 @@ paths:
     delete:
       tags:
         - Booking
-      summary: Удаляет существующее бронирование
+      summary: Отменяет/удаляет существующее бронирование
       description: Удаляет существующее бронирование по id
       operationId: deleteBooking
       parameters:
@@ -578,32 +578,41 @@ components:
       properties:
         hotelid:
           minimum: 1
+          maximum: 9999999999
           type: integer
           format: int32
+          example: 1
         roomid:
           minimum: 1
+          maximum: 9999999999
           type: integer
           format: int32
+          example: 1
         adults:
           minimum: 1
+          maximum: 9999999999
           type: integer
           format: int32
+          example: 1
         children:
           minimum: 0
+          maximum: 9999999999
           type: integer
           format: int32
+          example: 0
         customerfirstname:
-          maxLength: 18
-          minLength: 3
+          maxLength: 30
+          minLength: 2
           type: string
           example:  Anton
         customerlastname:
           maxLength: 30
-          minLength: 3
+          minLength: 2
           type: string
           example:  Chegur
         totalprice:
           minimum: 1
+          maximum: 3.4E+38
           type: integer
           format: float32
           example:  100.50
@@ -611,16 +620,22 @@ components:
           type: boolean
         email:
           type: string
+          maxLength: 254
+          minLength: 5
           example:  anton.chegur@example.com
         phone:
           type: string
-          example: 00385987654321      
+          maxLength: 13
+          minLength: 9
+          example: "+385987654321"
         bookingdates:
           $ref: '#/components/schemas/BookingDates'
         note:
           type: string
+          maxLength: 1000
+          minLength: 0
           example:  Guest asked for parking
-          
+
     BookingDates:
       required:
         - checkin
@@ -630,9 +645,11 @@ components:
         checkin:
           type: string
           format: date
+          example: 2024-09-13
         checkout:
           type: string
-          format: date  
+          format: date
+          example: 2024-09-14
 
     BookingResponse:
       required:
@@ -643,9 +660,9 @@ components:
         bookingid:
           minimum: 1
           type: integer
-          format: int32            
+          format: int32
         booking:
-          $ref: '#/components/schemas/Booking'  
+          $ref: '#/components/schemas/Booking'
 
     ToDo:
       type: object
@@ -653,7 +670,7 @@ components:
         info:
           type: string
           example: "// TODO: Will be added soon."
-          
+
     ErrorBadrequest:
       type: object
       properties:
@@ -663,7 +680,7 @@ components:
           example: 400
         error:
           type: string
-          example: Bad Request
+          example: Bad Request, check error list for specific errors that occured
         errorMessage:
           type: string
         fieldErrors:
