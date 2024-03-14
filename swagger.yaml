@@ -254,10 +254,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'        
-      security:
-        - petstore_auth: []
-        - api_key: []
+                $ref: '#/components/schemas/ToDo'
         
   /hotel/{hotel_id}:
     get:
@@ -491,7 +488,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'  
+                $ref: '#/components/schemas/ToDo'
+      security:
+        - petstore_auth: []
+        - api_key: []
 
     patch:
       tags:
@@ -527,7 +527,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'  
+                $ref: '#/components/schemas/ToDo'
+      security:
+        - petstore_auth: []
+        - api_key: []
 
     delete:
       tags:
@@ -556,7 +559,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ToDo'  
+                $ref: '#/components/schemas/ToDo'
+      security:
+        - petstore_auth: []
+        - api_key: []
 
 components:
   schemas:
